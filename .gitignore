@@ -1,2 +1,6 @@
 /vendor/
 .env
+
+# Gerado pelo "propel config:convert" a cada inicialização do container;
+# contém as credenciais já resolvidas, então nunca deve ser versionado.
+/generated-conf/config.php

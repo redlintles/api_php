@@ -8,14 +8,16 @@ services:
       - "8081:80"
     volumes:
       - .:/var/www/html
+    env_file:
+      - .env
     depends_on:
       - db
   db:
     image: mysql:8.0
     container_name: mysql-db
     environment:
-      MYSQL_ROOT_PASSWORD: Itsumade@1997
-      MYSQL_DATABASE: api_php
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:?defina DB_PASSWORD no arquivo .env}
+      MYSQL_DATABASE: ${DB_NAME:?defina DB_NAME no arquivo .env}
     volumes:
       - db_data:/var/lib/mysql
     ports:

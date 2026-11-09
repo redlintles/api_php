@@ -3,9 +3,9 @@ propel:
     connections:
       default:
         adapter: mysql
-        dsn: mysql:host=db;dbname=api_php;port=3306
-        user: root
-        password: Itsumade@1997
+        dsn: mysql:host=%env.DB_HOST%;dbname=%env.DB_NAME%;port=%env.DB_PORT%
+        user: "%env.DB_USER%"
+        password: "%env.DB_PASSWORD%"
   runtime:
     defaultConnection: default
     connections:
