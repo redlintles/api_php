@@ -31,10 +31,6 @@ $request = parse_url($_SERVER["REQUEST_URI"])["path"];
 if ($rootKey && $request == "/api/admin" && $_SERVER["REQUEST_METHOD"] == "GET") {
     sendResponse(200, false, "Primeiro Acesso detectado, enviando chave do root", ["api_key" => $rootKey], );
 }
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 
 // Verifica se a requisição é para uma rota começando com "/api"
 if (strpos($request, "/api") === 0) {
